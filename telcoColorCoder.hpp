@@ -1,6 +1,3 @@
-#ifndef TELCOCOLORCODER_HPP
-#define TELCOCOLORCODER_HPP
-
 namespace TelCoColorCoder
 {
     enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
@@ -17,8 +14,7 @@ namespace TelCoColorCoder
             MinorColor minorColor;
         public:
             ColorPair(MajorColor major, MinorColor minor):
-                majorColor(major), minorColor(minor)
-            {}
+                majorColor(major), minorColor(minor) {}
             MajorColor getMajor() {
                 return majorColor;
             }
@@ -42,5 +38,15 @@ namespace TelCoColorCoder
     int GetPairNumberFromColor(MajorColor major, MinorColor minor) {
         return major * numberOfMinorColors + minor + 1;
     }
+    void GetColorPairLegend(){
+        int pairNum = 0 ;
+        std::cout << "\t\t*** COLOR-PAIR LEGEND ***\n"<< "   Pair No." << "\t|\t" << "MajorColor" << "\t|\t" << "MinorColor" << "\n\t____________________________________________"<<std::endl ;
+        for(int majColNum = 0 ; majColNum < numberOfMajorColors ; ++majColNum ){
+            for (int minColNum = 0 ; minColNum < numberOfMinorColors ; ++minColNum){
+                ++pairNum;
+                std::cout << "\t" << pairNum << "\t|\t" << MajorColorNames[majColNum] << "\t\t|\t" << MinorColorNames[minColNum] << std::endl ;
+            }
+        }
+    }
 }
-#endif /* TELCOCOLORCODER_HPP */
+
